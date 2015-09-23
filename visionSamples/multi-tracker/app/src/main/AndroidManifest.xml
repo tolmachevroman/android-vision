@@ -28,7 +28,7 @@
             android:value="barcode,face" />
 
         <activity
-            android:name="com.google.android.gms.samples.vision.face.multitracker.MultiTrackerActivity"
+            android:name=".BarcodeScannerActivity"
             android:icon="@drawable/icon"
             android:label="Multi-Tracker"
             android:theme="@style/Theme.AppCompat.NoActionBar"
