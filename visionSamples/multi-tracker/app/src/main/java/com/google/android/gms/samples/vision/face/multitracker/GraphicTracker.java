@@ -1,4 +1,4 @@
-/*
+package com.google.android.gms.samples.vision.face.multitracker;/*
  * Copyright (C) The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.gms.samples.vision.face.multitracker;
 
 import com.google.android.gms.samples.vision.face.multitracker.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
@@ -28,10 +27,12 @@ import com.google.android.gms.vision.Tracker;
 class GraphicTracker<T> extends Tracker<T> {
     private GraphicOverlay mOverlay;
     private TrackedGraphic<T> mGraphic;
+    private OnBarcodeScanned mListener;
 
-    GraphicTracker(GraphicOverlay overlay, TrackedGraphic<T> graphic) {
+    GraphicTracker(GraphicOverlay overlay, TrackedGraphic<T> graphic, OnBarcodeScanned listener) {
         mOverlay = overlay;
         mGraphic = graphic;
+        mListener = listener;
     }
 
     /**
@@ -49,6 +50,7 @@ class GraphicTracker<T> extends Tracker<T> {
     public void onUpdate(Detector.Detections<T> detectionResults, T item) {
         mOverlay.add(mGraphic);
         mGraphic.updateItem(item);
+        mListener.onBarcodeScanned(item);
     }
 
     /**

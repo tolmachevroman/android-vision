@@ -1,4 +1,4 @@
-/*
+package com.google.android.gms.samples.vision.face.multitracker;/*
  * Copyright (C) The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.gms.samples.vision.face.multitracker;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -31,15 +30,17 @@ import com.google.android.gms.vision.barcode.Barcode;
  */
 class BarcodeTrackerFactory implements MultiProcessor.Factory<Barcode> {
     private GraphicOverlay mGraphicOverlay;
+    private OnBarcodeScanned mListener;
 
-    BarcodeTrackerFactory(GraphicOverlay graphicOverlay) {
+    BarcodeTrackerFactory(GraphicOverlay graphicOverlay, OnBarcodeScanned listener) {
         mGraphicOverlay = graphicOverlay;
+        mListener = listener;
     }
 
     @Override
     public Tracker<Barcode> create(Barcode barcode) {
         BarcodeGraphic graphic = new BarcodeGraphic(mGraphicOverlay);
-        return new GraphicTracker<>(mGraphicOverlay, graphic);
+        return new GraphicTracker<>(mGraphicOverlay, graphic, mListener);
     }
 }
 
@@ -68,7 +69,7 @@ class BarcodeGraphic extends TrackedGraphic<Barcode> {
         mRectPaint = new Paint();
         mRectPaint.setColor(selectedColor);
         mRectPaint.setStyle(Paint.Style.STROKE);
-        mRectPaint.setStrokeWidth(4.0f);
+        mRectPaint.setStrokeWidth(6.0f);
 
         mTextPaint = new Paint();
         mTextPaint.setColor(selectedColor);
