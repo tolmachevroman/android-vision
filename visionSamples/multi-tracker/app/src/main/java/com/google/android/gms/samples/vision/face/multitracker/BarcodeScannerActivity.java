@@ -34,8 +34,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.samples.vision.face.multitracker.ui.camera.CameraSourcePreview;
-import com.google.android.gms.samples.vision.face.multitracker.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.MultiDetector;
 import com.google.android.gms.vision.MultiProcessor;

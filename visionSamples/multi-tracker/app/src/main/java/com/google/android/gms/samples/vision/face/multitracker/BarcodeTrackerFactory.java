@@ -19,7 +19,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
-import com.google.android.gms.samples.vision.face.multitracker.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.barcode.Barcode;
